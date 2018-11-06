@@ -33,7 +33,9 @@ public class MainControllerTest {
 		}
 
 		smartLightBulbs.stream().map(SmartLightBulb::getIntensity).forEach(System.out::println);
+
 		Collections.sort(smartLightBulbs);
+
 		smartLightBulbs.stream().map(SmartLightBulb::getIntensity).forEach(System.out::println);
 
 

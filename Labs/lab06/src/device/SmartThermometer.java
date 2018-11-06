@@ -25,8 +25,9 @@ public class SmartThermometer extends SmartDevice {
 	}
 
 	@Override
-	public void doSomething() {
+	public void initialize() {
 		// TODO Auto-generated method stub
 
+		System.out.println("Initializing thermometer");
 	}
 }

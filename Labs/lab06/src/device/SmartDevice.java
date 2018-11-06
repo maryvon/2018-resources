@@ -11,11 +11,11 @@ public abstract class SmartDevice {
 	}
 
 	public void helloWorld() {
-		doSomething();
+		initialize();
 		System.out.println("Hello world");
 	}
 
-	public abstract void doSomething();
+	public abstract void initialize();
 
 	public void turnOn() {
 		turnedOn = true;

@@ -1,6 +1,6 @@
 package device;
 
-public class SmartLightBulb extends SmartDevice implements Comparable<SmartLightBulb>, Bluetooth, Mountable {
+public class SmartLightBulb extends SmartDevice implements Bluetooth, Comparable<SmartLightBulb> {
 
 	private String color;
 	private Integer intensity;
@@ -39,15 +39,32 @@ public class SmartLightBulb extends SmartDevice implements Comparable<SmartLight
 		return stringBuilder.append(", color=").append(color).append(", intensity=").append(intensity).toString();
 	}
 
+//	@Override
+//	public void mount() {
+//		// TODO Auto-generated method stub
+//
+//	}
+//
+//	@Override
+//	public int compareTo(SmartLightBulb o) {
+//		if (this.getIntensity() == o.getIntensity()) {
+//			return 0;
+//		}
+//		if (this.getIntensity() < o.getIntensity()) {
+//			return 1;
+//		}
+//		return -1;
+//	}
+
 	@Override
-	public void doSomething() {
-		System.out.println("Light bulb is doing something");
+	public void initialize() {
+		// TODO Auto-generated method stub
+		System.out.println("Initializing light bulb");
 	}
 
 	@Override
 	public void pair() {
 		// TODO Auto-generated method stub
-		Bluetooth.staticTest();
 		test();
 	}
 
@@ -59,12 +76,12 @@ public class SmartLightBulb extends SmartDevice implements Comparable<SmartLight
 
 	@Override
 	public int compareTo(SmartLightBulb o) {
-		if (this.getIntensity() == o.getIntensity()) {
-			return 0;
-		}
 		if (this.getIntensity() < o.getIntensity()) {
 			return 1;
+		} else if (this.getIntensity() > o.getIntensity()) {
+			return -1;
 		}
-		return -1;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
