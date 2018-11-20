@@ -16,6 +16,7 @@ public class SortTest {
 		}
 
 		Arrays.stream(grades).map(Grade::getValue).forEach(System.out::println);
+
 		Sort.bubbleSortAscending(grades, 100);
 
 		Arrays.stream(grades).map(Grade::getValue).forEach(System.out::println);

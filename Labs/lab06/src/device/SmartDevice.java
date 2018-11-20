@@ -1,6 +1,6 @@
 package device;
 
-public abstract class SmartDevice {
+public abstract class SmartDevice implements Bluetooth, Mountable {
 
 	private int id;
 	private String name;
@@ -10,12 +10,12 @@ public abstract class SmartDevice {
 		this.id = id;
 	}
 
+	public abstract void initialize();
+
 	public void helloWorld() {
 		initialize();
 		System.out.println("Hello world");
 	}
-
-	public abstract void initialize();
 
 	public void turnOn() {
 		turnedOn = true;

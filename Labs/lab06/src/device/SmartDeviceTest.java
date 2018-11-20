@@ -1,5 +1,6 @@
 package device;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import service.IdGenerator;
@@ -8,11 +9,12 @@ public class SmartDeviceTest {
 
 	@Test
 	public void testSmartDevices() {
-		SmartLightBulb lightBulb = new SmartLightBulb(IdGenerator.getNextId());
-		lightBulb.helloWorld();
+		SmartThermometer smartDevice = new SmartThermometer(0);
+		smartDevice.testNameClash();
 
-		Bluetooth lightBulbBluetooth = new SmartLightBulb(0);
+		Bluetooth lightBulbBluetooth = new SmartThermometer(0);
 		lightBulbBluetooth.pair();
+		Assert.assertTrue(lightBulbBluetooth instanceof Mountable);
 
 		// lightBulb.setName("philips-hue");
 		// lightBulb.setColor("red");

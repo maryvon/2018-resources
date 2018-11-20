@@ -12,6 +12,10 @@ public class SmartThermometer extends SmartDevice {
 		return temperature;
 	}
 
+	public void testNameClash() {
+		test();
+	}
+
 	public void setTemperature(double temperature) {
 		this.temperature = temperature;
 	}
@@ -29,5 +33,17 @@ public class SmartThermometer extends SmartDevice {
 		// TODO Auto-generated method stub
 
 		System.out.println("Initializing thermometer");
+	}
+
+	@Override
+	public void mount() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void pair() {
+		// TODO Auto-generated method stub
+
 	}
 }

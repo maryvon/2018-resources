@@ -1,14 +1,16 @@
 package device;
 
-public interface Bluetooth extends Mountable {
+public interface Bluetooth {
+
+	public final int CONSTANT = 0;
 
 	public void pair();
 
 	default void test() {
-
+		System.out.println("Bluetooth");
 	}
 
-	static void staticTest() {
+	public static void staticTest() {
 
 	}
 }

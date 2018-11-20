@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="room.Room" project="lab05" file="/lab05/src/room/Room.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="168" y="108"/>    
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="device.SmartDevice" project="lab05" file="/lab05/src/device/SmartDevice.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="169" y="385"/>    
+    <position height="-1" width="-1" x="172" y="441"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -46,31 +46,40 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <association id="6">    
+  <interface id="6" language="java" name="device.Bluetooth" project="lab06" file="/lab06/src/device/Bluetooth.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="652" y="311"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <association id="7">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="8" name="smartDevices">        
+        <position height="0" width="0" x="3" y="56"/>      
+      </attribute>      
+      <multiplicity id="9" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="3" y="56"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="10">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="7" name="rooms">        
+      <attribute id="11" name="rooms">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="8" minimum="0" maximum="2147483647">        
+      <multiplicity id="12" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="9">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="10" name="smartDevices">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="11" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="12">    
+  <generalization id="13">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="2"/>  
   </generalization>  

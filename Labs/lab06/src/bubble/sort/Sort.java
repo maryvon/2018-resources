@@ -2,6 +2,12 @@ package bubble.sort;
 
 public class Sort {
 
+	/**
+	 *
+	 * @param array
+	 * @param length
+	 * @return
+	 */
 	public static Comparable[] bubbleSortAscending(Comparable[] array, int length) {
 
 		boolean sorted = false;
