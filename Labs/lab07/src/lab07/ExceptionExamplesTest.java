@@ -1,5 +1,6 @@
 package lab07;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 
 import org.junit.Before;
@@ -18,18 +19,16 @@ public class ExceptionExamplesTest {
 	@Test
 	public void testArrayIndexOutOfBounds() {
 		System.out.println(testSomething());
-		System.out.println("Keep going");
+		exceptionExamples.printArrayElements();
 	}
 
 	private int testSomething() {
 		try {
 			exceptionExamples.printArrayElements();
 			return 0;
-		}
-		catch(ArrayIndexOutOfBoundsException exception) {
+		} catch (ArrayIndexOutOfBoundsException exception) {
 			return 1;
-		}
-		finally {
+		} finally {
 			return 2;
 		}
 	}
@@ -42,7 +41,7 @@ public class ExceptionExamplesTest {
 	@Test
 	public void test() {
 		exceptionExamples.aMethodThatThrowsAnUncheckedException();
-		//exceptionExamples.aMethodThatThrowsACheckedException();
+		// exceptionExamples.aMethodThatThrowsACheckedException();
 	}
 
 	@Test
@@ -55,9 +54,9 @@ public class ExceptionExamplesTest {
 			printer.print("and paper");
 			printer.print("oh noo123456789");
 		} catch (OutOfPaperException exception) {
-			System.out.println("It ran out of paper");
+			System.out.println(exception.getMessage());
 		} catch (OutOfInkException exception) {
-			System.out.println("It ran out of ink");
+			System.out.println(exception.getMessage());
 		}
 	}
 }

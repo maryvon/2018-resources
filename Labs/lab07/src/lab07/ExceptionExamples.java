@@ -14,7 +14,7 @@ public class ExceptionExamples {
 
 		for (int i = 0; i < 11; i++) {
 			int j = myArray[i];
-			//System.out.println(myArray[i]);
+			System.out.println(myArray[i]);
 		}
 	}
 
@@ -25,12 +25,17 @@ public class ExceptionExamples {
 		int result = firstNumber / secondNumber;
 
 		result = firstNumber / (secondNumber - 10);
+		return;
 	}
 
 	public void readFromFile() throws FileNotFoundException {
 		File file = new File("non-existing.file");
 		System.out.println(file.exists());
-		Scanner scan = new Scanner(file);
+		try {
+			Scanner scan = new Scanner(file);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	public void aMethodThatThrowsAnUncheckedException() throws ArrayIndexOutOfBoundsException {

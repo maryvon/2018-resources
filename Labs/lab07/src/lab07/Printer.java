@@ -10,7 +10,7 @@ public class Printer {
 
 	public Printer() {
 		inkVolume = 100;
-		paperVolume = 11;
+		paperVolume =11;
 		currentPageCharacterCounter = 0;
 	}
 
@@ -27,9 +27,9 @@ public class Printer {
 				currentPageCharacterCounter++;
 			} else {
 				if (paperVolume == 0) {
-					throw new OutOfPaperException();
+					throw new OutOfPaperException("I ran out of paper");
 				} else if (inkVolume == 0) {
-					throw new OutOfInkException();
+					throw new OutOfInkException("I ran out of ink");
 				}
 				System.out.println();
 				System.out.println("[PRINTER] An error occured..");
