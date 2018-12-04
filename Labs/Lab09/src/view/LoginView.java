@@ -6,8 +6,9 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JRadioButton;
+import javax.swing.JPanel;
 
 public class LoginView extends JFrame {
 
@@ -18,7 +19,7 @@ public class LoginView extends JFrame {
 	private JLabel messageLabel;
 
 	public LoginView() {
-		this.setBounds(100, 100, 400, 300);
+		this.setBounds(100, 100, 394, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 
@@ -49,6 +50,7 @@ public class LoginView extends JFrame {
 		messageLabel = new JLabel("New label");
 		messageLabel.setBounds(12, 224, 56, 16);
 		getContentPane().add(messageLabel);
+
 		messageLabel.setVisible(false);
 	}
 
