@@ -26,6 +26,7 @@ public class TransactionTest {
 		map.put(1, "a");
 		map.put(1, "b");
 
+
 		for (Integer key : map.keySet()) {
 
 		}
@@ -43,21 +44,21 @@ public class TransactionTest {
 				System.out.println(currentElement);
 			}
 		}
-
-
-		int index = 0;
-		for (Integer element : arrayOfInts) {
-			if (element % 2 == 0) {
-				arrayOfInts.remove(element);
-			}
-			index++;
-		}
-
-		for (int i = 0; i < 10; i++) {
-			if (i % 2 == 0) {
-				arrayOfInts.remove(i);
-			}
-		}
+//
+//
+//		int index = 0;
+//		for (Integer element : arrayOfInts) {
+//			if (element % 2 == 0) {
+//				arrayOfInts.set(index, element);
+//			}
+//			index++;
+//		}
+//
+//		for (int i = 0; i < 10; i++) {
+//			if (i % 2 == 0) {
+//				arrayOfInts.remove(i);
+//			}
+//		}
 
 		map.keySet();
 
