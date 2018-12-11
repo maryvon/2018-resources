@@ -6,9 +6,13 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+
 import javax.swing.JRadioButton;
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 
 public class LoginView extends JFrame {
 
@@ -17,6 +21,7 @@ public class LoginView extends JFrame {
 	private JButton loginButton;
 	private JButton notRegisteredButton;
 	private JLabel messageLabel;
+	private JButton passwordToggleButton;
 
 	public LoginView() {
 		this.setBounds(100, 100, 394, 300);
@@ -36,6 +41,7 @@ public class LoginView extends JFrame {
 		getContentPane().add(usernameTextField);
 
 		passwordTextField = new JPasswordField();
+		passwordTextField.setEchoChar('*');
 		passwordTextField.setBounds(114, 109, 162, 20);
 		getContentPane().add(passwordTextField);
 
@@ -48,8 +54,12 @@ public class LoginView extends JFrame {
 		getContentPane().add(notRegisteredButton);
 
 		messageLabel = new JLabel("New label");
-		messageLabel.setBounds(12, 224, 56, 16);
+		messageLabel.setBounds(12, 224, 356, 16);
 		getContentPane().add(messageLabel);
+
+		passwordToggleButton = new JButton("?");
+		passwordToggleButton.setBounds(288, 107, 39, 22);
+		getContentPane().add(passwordToggleButton);
 
 		messageLabel.setVisible(false);
 	}
@@ -62,16 +72,43 @@ public class LoginView extends JFrame {
 		notRegisteredButton.addActionListener(actionListener);
 	}
 
+	public void addPasswordToggleButtonMouseListener(final MouseListener mouseListener) {
+		passwordToggleButton.addMouseListener(mouseListener);
+	}
+
 	public String getUsername() {
 		return usernameTextField.getText();
 	}
 
-	public char[] getPassword() {
-		return passwordTextField.getPassword();
+	public String getPassword() {
+		return String.valueOf(passwordTextField.getPassword());
 	}
 
 	public void displayMessage(String messageText) {
-		messageLabel.setText(messageText);
-		messageLabel.setVisible(true);
+		final Runnable runnable = new Runnable() {
+
+			@Override
+			public void run() {
+				messageLabel.setText(messageText);
+				messageLabel.setVisible(true);
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} finally {
+					messageLabel.setVisible(false);
+				}
+			}
+		};
+		Thread thread = new Thread(runnable);
+		thread.start();
+	}
+
+	public void hidePassword() {
+		passwordTextField.setEchoChar('*');
+	}
+
+	public void displayPassword() {
+		passwordTextField.setEchoChar((char) 0);
 	}
 }

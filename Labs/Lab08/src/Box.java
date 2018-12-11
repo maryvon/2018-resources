@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class Box<E> {
 	private E content;

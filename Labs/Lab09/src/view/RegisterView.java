@@ -4,6 +4,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
 public class RegisterView extends JFrame {
@@ -11,6 +14,7 @@ public class RegisterView extends JFrame {
 	private JPasswordField passwordTextField;
 	private JTextField lastNameTextField;
 	private JTextField firstNameTextField;
+	private JButton registerButton;
 
 	public RegisterView() {
 		this.setBounds(100, 100, 404, 357);
@@ -49,9 +53,31 @@ public class RegisterView extends JFrame {
 		firstNameTextField.setBounds(119, 43, 162, 20);
 		getContentPane().add(firstNameTextField);
 
-		JButton registerButton = new JButton("Register");
+		registerButton = new JButton("Register");
 		registerButton.setBounds(187, 265, 89, 23);
 		getContentPane().add(registerButton);
 	}
 
+	public void addRegisterButtonActionListener(final ActionListener e) {
+		registerButton.addActionListener(e);
+	}
+
+	public String getFirstName() {
+		return firstNameTextField.getText();
+	}
+
+	public String getLastName() {
+		return lastNameTextField.getText();
+
+	}
+
+	public String getUsername() {
+		return usernameTextField.getText();
+
+	}
+
+	public String getPassword() {
+		return String.valueOf(passwordTextField.getPassword());
+
+	}
 }
