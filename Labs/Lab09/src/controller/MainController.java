@@ -1,15 +1,22 @@
 package controller;
 
+import java.awt.AWTEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.awt.event.WindowStateListener;
 
 import javax.swing.UIManager;
 
 import component.DatePicker;
 import model.User;
 import service.UserService;
+import view.Dashboard;
 import view.LoginView;
 import view.RegisterView;
 
@@ -19,6 +26,7 @@ public class MainController {
 
 	private LoginView loginView;
 	private RegisterView registerView;
+	private Dashboard dashboard;
 
 	public void start() {
 		try {
@@ -30,6 +38,7 @@ public class MainController {
 
 		loginView = new LoginView();
 		registerView = new RegisterView();
+		dashboard = new Dashboard();
 
 		userService = new UserService();
 
@@ -38,6 +47,31 @@ public class MainController {
 		loginView.setVisible(true);
 
 		DatePicker dp = new DatePicker(loginView);
+		System.out.println(dp.setPickedDate());
+		dp.getDialog().addComponentListener(new ComponentListener() {
+
+			@Override
+			public void componentShown(ComponentEvent e) {
+				System.out.println("shown");
+			}
+
+			@Override
+			public void componentResized(ComponentEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void componentMoved(ComponentEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void componentHidden(ComponentEvent e) {
+				System.out.println(dp.getDay());
+			}
+		});
 	}
 
 	private void initializeButtonListeners() {
@@ -47,8 +81,9 @@ public class MainController {
 			final User user = userService.get(username);
 			if (user == null || password == null || !user.getPassword().equals(password)) {
 				loginView.displayMessage("Username or password are not correct");
+			} else {
+				dashboard.setVisible(true);
 			}
-
 		});
 
 		loginView.addNotRegisteredButtonActionListener(e -> {

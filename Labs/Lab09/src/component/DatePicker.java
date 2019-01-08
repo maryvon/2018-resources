@@ -9,11 +9,14 @@ public class DatePicker {
 	int year = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);;
 	JLabel l = new JLabel("", JLabel.CENTER);
 	String day = "";
-	JDialog d;
+	JDialog d = new JDialog();
 	JButton[] button = new JButton[49];
 
+	public JDialog getDialog() {
+		return d;
+	}
+
 	public DatePicker(JFrame parent) {
-		d = new JDialog();
 		d.setModal(true);
 		String[] header = { "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat" };
 		JPanel p1 = new JPanel(new GridLayout(7, 7));
@@ -43,7 +46,7 @@ public class DatePicker {
 		JButton previous = new JButton("<");
 		previous.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				month++;
+				month--;
 				displayDate();
 			}
 		});
@@ -85,5 +88,9 @@ public class DatePicker {
 		java.util.Calendar cal = java.util.Calendar.getInstance();
 		cal.set(year, month, Integer.parseInt(day));
 		return sdf.format(cal.getTime());
+	}
+
+	public String getDay() {
+		return day;
 	}
 }
