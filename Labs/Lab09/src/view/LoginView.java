@@ -37,12 +37,12 @@ public class LoginView extends JFrame {
 		getContentPane().add(passwordLabel);
 
 		usernameTextField = new JTextField();
-		usernameTextField.setBounds(114, 53, 162, 20);
+		usernameTextField.setBounds(114, 59, 162, 20);
 		getContentPane().add(usernameTextField);
 
 		passwordTextField = new JPasswordField();
-		passwordTextField.setEchoChar('*');
 		passwordTextField.setBounds(114, 109, 162, 20);
+		passwordTextField.setEchoChar('*');
 		getContentPane().add(passwordTextField);
 
 		loginButton = new JButton("Login");
