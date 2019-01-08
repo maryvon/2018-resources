@@ -9,8 +9,13 @@ public class UserService {
 
 	private Database database;
 
-	public UserService() throws Exception {
-		database = Database.getInstance();
+	public UserService() {
+		try {
+			database = Database.getInstance();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public List<User> findAll() {
@@ -41,9 +46,9 @@ public class UserService {
 
 		PreparedStatement preparedStatement;
 		try {
-			preparedStatement = connection.prepareStatement("insert into mydatabase.users values (?, ?)");
-			preparedStatement.setString(0, user.getUsername());
-			preparedStatement.setString(1, user.getPassword());
+			preparedStatement = connection.prepareStatement("insert into mydatabase.users (username, password) values (?, ?)");
+			preparedStatement.setString(1, user.getUsername());
+			preparedStatement.setString(2, user.getPassword());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

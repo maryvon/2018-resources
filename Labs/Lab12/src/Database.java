@@ -17,21 +17,19 @@ public class Database {
 	private Statement statement = null;
 	private ResultSet resultSet = null;
 
-	private Database() throws Exception {
+	private Database() {
 		try {
 			// This will load the MySQL driver, each DB has its own driver
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			// Setup the connection with the DB
 			connection = DriverManager
-					.getConnection("jdbc:mysql://localhost/mydatabase?" + "user=user&password=password");
+					.getConnection("jdbc:mysql://localhost:3306/mydatabase", "user", "password");
 
 			// Statements allow to issue SQL queries to the database
 			statement = connection.createStatement();
 
 		} catch (Exception e) {
-			throw e;
-		} finally {
-			close();
+			e.printStackTrace();
 		}
 	}
 
@@ -49,25 +47,7 @@ public class Database {
 		return connection;
 	}
 
-	private void close() {
-		try {
-			if (resultSet != null) {
-				resultSet.close();
-			}
-
-			if (statement != null) {
-				statement.close();
-			}
-
-			if (connection != null) {
-				connection.close();
-			}
-		} catch (Exception e) {
-
-		}
-	}
-
-	public static Database getInstance() throws Exception {
+	public static Database getInstance() {
 		if (databaseConnection == null) {
 			databaseConnection = new Database();
 		}
